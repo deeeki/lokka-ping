@@ -1,0 +1,13 @@
+%h2 Ping
+%form{:action => '/admin/plugins/ping', :method => 'post'}
+  %input{:type => 'hidden', :name => '_method', :value => 'put'}
+  .field
+    %label{:for => 'Site URL'} Site URL
+    %br
+    %input{:type => 'text', :id => 'site_url', :name => 'site_url', :value => Option.site_url || request.base_url + '/'}
+    %br
+    %label{:for => 'ping_servers'} Ping Servers
+    %br
+    %textarea{:id => 'ping_servers', :name => 'ping_servers'}=Option.ping_servers
+  .field
+    %input{:type => 'submit', :value => t.edit}
